@@ -9,7 +9,17 @@ FROM base AS dependency-installer
 WORKDIR /app
 COPY package*.json .npmrc ./
 
-RUN npm install --legacy-peer-deps
+# Configurar npm para ser mais resiliente a problemas de rede
+RUN npm config set fetch-retry-mintimeout 20000 && \
+    npm config set fetch-retry-maxtimeout 120000 && \
+    npm config set fetch-timeout 300000 && \
+    npm cache clean --force
+
+# Instalar dependências incluindo opcionais para Alpine
+RUN npm install --legacy-peer-deps --include=optional
+
+# Instalar manualmente a dependência do rollup que está faltando
+RUN npm install @rollup/rollup-linux-x64-musl --save-optional || true
 
 # Stage 2: Build da aplicação
 FROM base AS builder
