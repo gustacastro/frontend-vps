@@ -1,0 +1,9 @@
+# Configuração específica para Coolify
+# Este arquivo contém metadados para o Coolify (opcional)
+
+name: "Dashboard Frontend"
+description: "Aplicação React com TypeScript para dashboard"
+port: 80
+healthcheck: "/health"
+type: "docker-compose"
+dockerfile: "Dockerfile"

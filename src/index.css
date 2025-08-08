@@ -1,0 +1,219 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+
+
+@layer base {
+    :root {
+        color-scheme: dark;
+
+        --color-primary: #ff7f2a;
+        --color-primary-hover: #e6691a;
+        --color-primary-light: #ff9a4d;
+
+        --color-secondary: #6b7280;
+        --color-secondary-hover: #4b5563;
+        --color-secondary-light: #9ca3af;
+
+        --color-accent: #ff7f2a;
+        --color-accent-hover: #e6691a;
+        --color-accent-light: #ff9a4d;
+
+        --color-danger: #dc2626;
+        --color-danger-hover: #b91c1c;
+        --color-danger-light: #f87171;
+        --color-danger-bg: #7f1d1d;
+        --color-danger-border: #b91c1c;
+        --color-danger-text: #fca5a5;
+
+        --color-background: #0d0b09;
+        --color-background-card: #141210;
+        --color-background-input: #1c1914;
+        --color-background-hover: #1c1914;
+
+        --color-text-primary: #f9fafb;
+        --color-text-secondary: #d1d5db;
+        --color-text-muted: #9ca3af;
+        --color-text-placeholder: #6b7280;
+
+        --color-border: #1c1914;
+        --color-border-light: #2a251f;
+
+        --color-focus: #ff7f2a;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        height: 100%;
+        background-color: var(--color-background);
+        color: var(--color-text-primary);
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+            'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+            sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: var(--color-background);
+        color: var(--color-text-primary);
+    }
+
+    #root {
+        height: 100%;
+    }
+}
+
+@layer utilities {
+    .bg-app-bg {
+        background-color: var(--color-background);
+    }
+
+    .bg-app-bg-card {
+        background-color: var(--color-background-card);
+    }
+
+    .bg-app-bg-input {
+        background-color: var(--color-background-input);
+    }
+
+    .bg-app-bg-hover {
+        background-color: var(--color-background-hover);
+    }
+
+    .text-app-text-primary {
+        color: var(--color-text-primary);
+    }
+
+    .text-app-text-secondary {
+        color: var(--color-text-secondary);
+    }
+
+    .text-app-text-muted {
+        color: var(--color-text-muted);
+    }
+
+    .text-app-text-placeholder {
+        color: var(--color-text-placeholder);
+    }
+
+    .border-app-border {
+        border-color: var(--color-border);
+    }
+
+    .border-app-border-light {
+        border-color: var(--color-border-light);
+    }
+
+    .bg-primary {
+        background-color: var(--color-primary);
+    }
+
+    .bg-primary-hover {
+        background-color: var(--color-primary-hover);
+    }
+
+    .bg-primary-light {
+        background-color: var(--color-primary-light);
+    }
+
+    .text-primary {
+        color: var(--color-primary);
+    }
+
+    .text-primary-light {
+        color: var(--color-primary-light);
+    }
+
+    .bg-secondary {
+        background-color: var(--color-secondary);
+    }
+
+    .text-secondary {
+        color: var(--color-secondary);
+    }
+
+    .bg-danger {
+        background-color: var(--color-danger);
+    }
+
+    .bg-danger-hover {
+        background-color: var(--color-danger-hover);
+    }
+
+    .bg-danger-bg {
+        background-color: var(--color-danger-bg);
+    }
+
+    .border-danger-border {
+        border-color: var(--color-danger-border);
+    }
+
+    .text-danger-text {
+        color: var(--color-danger-text);
+    }
+
+    .ring-app-focus {
+        --tw-ring-color: var(--color-focus);
+    }
+
+    .border-app-focus {
+        border-color: var(--color-focus);
+    }
+
+    .hover\:bg-primary-hover:hover {
+        background-color: var(--color-primary-hover);
+    }
+
+    .hover\:bg-danger-hover:hover {
+        background-color: var(--color-danger-hover);
+    }
+
+    .hover\:text-app-text-primary:hover {
+        color: var(--color-text-primary);
+    }
+
+    .hover\:text-app-text-secondary:hover {
+        color: var(--color-text-secondary);
+    }
+
+    .hover\:text-primary:hover {
+        color: var(--color-primary);
+    }
+
+    .hover\:bg-app-bg-hover:hover {
+        background-color: var(--color-background-hover);
+    }
+}
+
+html {
+    height: 100%;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Comfortaa', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+#root {
+    height: 100%;
+}
+
+button {
+    cursor: pointer;
+}
