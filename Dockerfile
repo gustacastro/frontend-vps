@@ -9,11 +9,11 @@ RUN apk add --no-cache python3 make g++
 # Definir diretório de trabalho
 WORKDIR /app
 
-# Copiar arquivos de dependências primeiro (para cache layer)
-COPY package*.json ./
+# Copiar arquivos de configuração primeiro
+COPY package*.json .npmrc ./
 
-# Instalar dependências (com legacy-peer-deps para React 19)
-RUN npm install --legacy-peer-deps
+# Instalar dependências
+RUN npm install
 
 # Copiar código fonte
 COPY . .
