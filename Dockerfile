@@ -23,6 +23,12 @@ RUN npm config set fetch-retry-mintimeout 20000 && \
 # Instalar dependências
 RUN npm install --legacy-peer-deps
 
+# Instalar manualmente as dependências rollup que podem estar faltando
+RUN npm install @rollup/rollup-linux-x64-gnu --save-optional || echo "Rollup dependency not available, continuing..."
+
+# Instalar dependência nativa do LightningCSS para Tailwind
+RUN npm install lightningcss-linux-x64-gnu --save-optional || echo "LightningCSS dependency not available, continuing..."
+
 # Stage 2: Build da aplicação
 FROM base AS builder
 WORKDIR /app
