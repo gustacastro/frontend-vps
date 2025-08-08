@@ -12,8 +12,8 @@ WORKDIR /app
 # Copiar arquivos de dependências primeiro (para cache layer)
 COPY package*.json ./
 
-# Instalar todas as dependências (incluindo devDependencies para o build)
-RUN npm ci --frozen-lockfile
+# Instalar dependências (com legacy-peer-deps para React 19)
+RUN npm install --legacy-peer-deps
 
 # Copiar código fonte
 COPY . .
