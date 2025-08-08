@@ -1,8 +1,13 @@
 # Multi-stage build otimizado para Vite/React
-FROM node:20-alpine AS base
+# Usando Debian para melhor compatibilidade com dependências nativas
+FROM node:20-slim AS base
 
 # Instalar dependências do sistema necessárias para build
-RUN apk add --no-cache libc6-compat python3 make g++
+RUN apt-get update && apt-get install -y \
+    python3 \
+    make \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
 
 # Stage 1: Instalar dependências
 FROM base AS dependency-installer
@@ -15,11 +20,8 @@ RUN npm config set fetch-retry-mintimeout 20000 && \
     npm config set fetch-timeout 300000 && \
     npm cache clean --force
 
-# Instalar dependências incluindo opcionais para Alpine
-RUN npm install --legacy-peer-deps --include=optional
-
-# Instalar manualmente a dependência do rollup que está faltando
-RUN npm install @rollup/rollup-linux-x64-musl --save-optional || true
+# Instalar dependências
+RUN npm install --legacy-peer-deps
 
 # Stage 2: Build da aplicação
 FROM base AS builder
